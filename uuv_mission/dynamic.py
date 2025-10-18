@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 import matplotlib.pyplot as plt
 from terrain import generate_reference_and_limits
-from PIDControl import PIDController
+from PIDcontroller import PIDController  # Fixed import
 
 class Submarine:
     def __init__(self):
