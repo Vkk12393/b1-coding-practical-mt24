@@ -2,8 +2,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import numpy as np
 import matplotlib.pyplot as plt
-from .terrain import generate_reference_and_limits
-from .control import PDController
+from terrain import generate_reference_and_limits
+from control import PDController
 
 class Submarine:
     def __init__(self):
@@ -75,11 +75,12 @@ class Mission:
         return cls(reference, cave_height, cave_depth)
 
     @classmethod
-    def from_csv(cls, file_name: str):
+    def from_csv(cls, file_name: str = mission.csv):
         """
         Creates a Mission instance from CSV file containing mission data.
         The CSV should have three columns: reference, cave_height, cave_depth
         """
+       
         data = np.loadtxt(file_name, delimiter=',', skiprows=1)
         reference = data[:, 0]
         cave_height = data[:, 1]
