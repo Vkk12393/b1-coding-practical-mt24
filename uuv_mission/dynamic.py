@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 import matplotlib.pyplot as plt
 from terrain import generate_reference_and_limits
-from control import PDController
+from control import PIDController
 
 class Submarine:
     def __init__(self):
@@ -89,7 +89,7 @@ class Mission:
 
 
 class ClosedLoop:
-    def __init__(self, plant: Submarine, controller):
+    def __init__(self, plant: Submarine, controller: PIDController):
         self.plant = plant
         self.controller = controller
 
